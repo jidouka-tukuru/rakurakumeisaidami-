@@ -30,6 +30,13 @@
     .notice{padding:14px;border:1px dashed #9ec1ff;background:#fcfeff;border-radius:12px}
     .kbd{display:inline-block;padding:2px 8px;border:1px solid #cbd5e1;border-bottom-width:2px;border-radius:6px;background:#fff;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px}
 
+    .login-box{max-width:400px;margin:80px auto;padding:30px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 4px 12px rgba(0,0,0,0.08)}
+    .login-box h1{font-size:20px;margin-bottom:20px;text-align:center;color:var(--brand)}
+    .login-box label{display:block;margin:10px 0 4px;color:var(--muted);font-size:14px}
+    .login-box input{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font-size:14px}
+    .login-box button{width:100%;padding:12px;margin-top:16px;border:none;border-radius:10px;background:var(--brand);color:#fff;font-weight:700;font-size:15px;cursor:pointer}
+    .login-box button:hover{background:var(--brand-2)}
+
     /* Details page */
     .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
     .toolbar label{font-size:13px;color:var(--muted)}
@@ -58,112 +65,100 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <div class="app-title">請求書ダウンロード（ダミー）</div>
-      <nav>
-        <a href="#home" class="tab-link" data-tab="home">トップページ</a>
-        <a href="#details" class="tab-link" data-tab="details">明細の確認</a>
-        <a href="#profile" class="tab-link" data-tab="profile">ご登録情報</a>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <!-- トップページ -->
-    <section id="home" class="tab card" hidden>
-      <h2>お問合せ先</h2>
-      <div class="grid cols-2">
-        <div>
-          <p class="muted">ハギー<br>事業支援部 経理グループ</p>
-          <p class="muted">〒000-0000<br>火星1-2-3オリンポス999F</p>
-          <p class="muted">TEL:03-5405-4882<br>MAIL: invoice@ipros.jp</p>
-          <p class="muted">※ご登録内容の確認・変更等については、上記へご連絡ください。</p>
+  <!-- ログイン画面 -->
+  <section id="login" class="login-box">
+    <h1>ログイン</h1>
+    <label for="user">ユーザー名</label>
+    <input id="user" type="text" placeholder="ユーザー名" />
+    <label for="pass">パスワード</label>
+    <input id="pass" type="password" placeholder="パスワード" />
+    <button id="loginBtn">ログイン</button>
+  </section>
+
+  <!-- メイン画面 -->
+  <div id="app" hidden>
+    <header>
+      <div class="wrap">
+        <div class="app-title">請求書ダウンロード（ダミー）</div>
+        <nav>
+          <a href="#home" class="tab-link" data-tab="home">トップページ</a>
+          <a href="#details" class="tab-link" data-tab="details">明細の確認</a>
+          <a href="#profile" class="tab-link" data-tab="profile">ご登録情報</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- トップページ -->
+      <section id="home" class="tab card" hidden>
+        <h2>お問合せ先</h2>
+        <p class="muted">株式会社イプロス 事業支援部 経理グループ</p>
+        <p class="muted">〒105-0022 東京都港区海岸1-2-20 汐留ビルディング 21階</p>
+        <p class="muted">TEL:03-5405-4882 MAIL: invoice@ipros.jp</p>
+
+        <h2 style="margin-top:20px">サービスのご利用にあたって</h2>
+        <ul class="muted">
+          <li><a class="link" href="#">利用規約</a></li>
+          <li><a class="link" href="#">個人情報の取り扱いについて</a></li>
+        </ul>
+      </section>
+
+      <!-- 明細の確認 -->
+      <section id="details" class="tab card" hidden>
+        <p class="muted">最大過去36か月分の帳票をダウンロードすることができます。</p>
+        <div class="toolbar" role="search">
+          <label>発行月：
+            <select>
+              <option>指定なし</option>
+              <option>2025/09</option>
+              <option>2025/04</option>
+            </select>
+          </label>
+          <button id="searchBtn">検索</button>
+          <button class="secondary">一括ダウンロード</button>
         </div>
-        <div>
-          <h2>パチモンからのお知らせ</h2>
-          <div class="notice">
-            <p>◆ページURL変更のお知らせ<br>
-            新しいセキュリティ基準および利便性向上のためURLを変更しました。ブックマークをご利用の方は更新をお願いします。</p>
-            <p>ログインページ：<a class="link" href="#" onclick="alert('ダミーです');return false;">https://rbwahoo.eco-serv.jp/ipros/mypage/</a></p>
-            <p>◆電子帳簿保存法へのご案内<br>受領書類や請求書PDFを案件別に管理でき、電子帳簿保存法にも対応可能です。</p>
-            <p><a class="link" href="#" onclick="alert('ダミーです');return false;">電子帳簿保存法対応「楽楽電子保存（仮称）」お申し込みはこちら »</a></p>
-          </div>
-        </div>
-      </div>
 
-      <h2 style="margin-top:20px">サービスのご利用にあたって</h2>
-      <ul class="muted">
-        <li><a class="link" href="#" onclick="alert('ダミーです');return false;">利用規約</a></li>
-        <li><a class="link" href="#" onclick="alert('ダミーです');return false;">個人情報の取り扱いについて</a></li>
-        <li><a class="link" href="#" onclick="alert('ダミーです');return false;">マイページの「保存環境」について</a></li>
-      </ul>
-    </section>
+        <table aria-label="請求書一覧" style="margin-top:12px">
+          <thead>
+            <tr><th>発行日</th><th>ダウンロード</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2025/09/01</td>
+              <td><a class="link" href="invoices_dummy/invoice_2025-09.pdf" target="_blank">📄 PDFダウンロード</a></td>
+            </tr>
+            <tr>
+              <td>2025/04/30</td>
+              <td><a class="link" href="invoices_dummy/invoice_2025-04.pdf" target="_blank">📄 PDFダウンロード</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
-    <!-- 明細の確認 -->
-    <section id="details" class="tab card" hidden>
-      <p class="muted">最大過去36か月分の帳票をダウンロードすることができます。</p>
-      <div class="toolbar" role="search">
-        <label>発行月：
-          <select>
-            <option>指定なし</option>
-            <option>2025/09</option>
-            <option>2025/04</option>
-          </select>
-        </label>
-        <label>請求日：
-          <input type="date" />
-          〜
-          <input type="date" />
-        </label>
-        <label>キーワード：<input type="text" placeholder="複数キーワード可" /></label>
-        <label>金額（円）：<input type="number" inputmode="numeric" placeholder="例）10000" /></label>
-        <button id="searchBtn" aria-label="検索">検索</button>
-        <button class="secondary" onclick="alert('ダミー：一括ダウンロード')">一括ダウンロード</button>
-      </div>
-
-      <table aria-label="請求書一覧" style="margin-top:12px">
-        <thead>
-          <tr>
-            <th style="width:140px">発行日</th>
-            <th>ダウンロード</th>
-            <th style="width:160px">添付ファイル</th>
-          </tr>
-        </thead>
-        <tbody id="rows">
-          <!-- JSで行を挿入 -->
-        </tbody>
-      </table>
-
-      <div class="pager">
-        <div class="buttons">
-          <button class="btn" id="prev">«</button>
-          <span class="muted" id="pageLabel">1 / 2</span>
-          <button class="btn" id="next">»</button>
-        </div>
-        <label class="muted">表示件数
-          <select id="perPage">
-            <option>50件</option>
-            <option>20件</option>
-            <option>10件</option>
-          </select>
-        </label>
-      </div>
-    </section>
-
-    <!-- ご登録情報 -->
-    <section id="profile" class="tab card" hidden>
-      <h2>ご登録情報</h2>
-      <p class="muted">このページはダミーです。会社名・住所・請求先メールなどを表示する想定領域。
-      編集ボタンや通知先の追加ボタンなどを配置できます。</p>
-      <div class="notice">
-        <b>サンプル：</b>株式会社テストカンパニー / 請求先メール: billing@example.com / 郵便番号: 100-0000 / 東京都千代田区丸の内1-1-1
-      </div>
-    </section>
-  </main>
+      <!-- ご登録情報 -->
+      <section id="profile" class="tab card" hidden>
+        <h2>ご登録情報</h2>
+        <div class="notice">株式会社テストカンパニー / 請求先メール: billing@example.com</div>
+      </section>
+    </main>
+  </div>
 
   <script>
-    // ---- Simple SPA tabs ----
+    // ログイン処理（ダミー）
+    document.getElementById('loginBtn').onclick = () => {
+      const u = document.getElementById('user').value;
+      const p = document.getElementById('pass').value;
+      if(u && p){
+        document.getElementById('login').hidden = true;
+        document.getElementById('app').hidden = false;
+        show('home');
+      } else {
+        alert('ユーザー名とパスワードを入力してください');
+      }
+    }
+
+    // タブ切替
     const tabs = Array.from(document.querySelectorAll('.tab'));
     const links = Array.from(document.querySelectorAll('.tab-link'));
     function show(tab){
@@ -177,35 +172,6 @@
     }
     links.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();show(a.dataset.tab)}));
     window.addEventListener('hashchange', initRoute);
-    initRoute();
-
-    // ---- Fake table data ----
-    const data = [
-      {date:'2025/09/01', downloaded:true, at:'2025/09/01 16:12:19', name:'請求書_2025-09.pdf'},
-      {date:'2025/04/30', downloaded:true, at:'2025/05/01 09:58:40', name:'請求書_2025-04.pdf'}
-    ];
-    const rows = document.getElementById('rows');
-    function renderRows(){
-      rows.innerHTML = '';
-      data.forEach((r,i)=>{
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td>${r.date}</td>
-          <td>
-            <a class="link" href="#" onclick="alert('ダミーPDF: ${r.name}')">📄 PDFダウンロード</a>
-            <span class="badge" title="ダウンロード状況">済 <small>（${r.at}）</small></span>
-          </td>
-          <td class="muted">—</td>
-        `;
-        rows.appendChild(tr);
-      });
-    }
-    renderRows();
-
-    // ---- Dummy pager ----
-    document.getElementById('prev').onclick = ()=>alert('ダミー：前のページ');
-    document.getElementById('next').onclick = ()=>alert('ダミー：次のページ');
-    document.getElementById('searchBtn').onclick = ()=>alert('ダミー：検索しました');
   </script>
 </body>
 </html>
