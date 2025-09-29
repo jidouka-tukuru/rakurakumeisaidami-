@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>請求書ダウンロード（ダミー）</title>
+  <style>
+    :root{
+      --bg:#f5f9ff; --card:#eef5ff; --line:#cfe0ff; --text:#0f172a; --muted:#475569; --brand:#2563eb; --brand-2:#1e40af; --white:#fff;
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;color:var(--text);background:var(--bg)}
+    header{position:sticky;top:0;z-index:10;background:linear-gradient(180deg,var(--white),#f7fbffcc);backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid #e5edf9}
+    .wrap{max-width:1080px;margin:0 auto;padding:18px}
+    .app-title{font-size:18px;font-weight:700;color:var(--brand)}
+    nav{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+    nav a{padding:10px 14px;border:1px solid var(--line);border-bottom:2px solid transparent;border-radius:10px;background:var(--white);text-decoration:none;color:var(--muted);font-weight:600}
+    nav a.active{color:var(--brand-2);border-color:#bfd3ff;border-bottom-color:var(--brand);background:#f7fbff}
+
+    main{max-width:1080px;margin:22px auto;padding:0 18px 40px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+    h2{font-size:16px;margin:0 0 10px}
+    .grid{display:grid;gap:14px}
+    .grid.cols-2{grid-template-columns:1fr 1fr}
+    .muted{color:var(--muted);font-size:14px}
+    .link{color:var(--brand);text-decoration:none}
+    .link:hover{text-decoration:underline}
+
+    .notice{padding:14px;border:1px dashed #9ec1ff;background:#fcfeff;border-radius:12px}
+    .kbd{display:inline-block;padding:2px 8px;border:1px solid #cbd5e1;border-bottom-width:2px;border-radius:6px;background:#fff;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px}
+
+    /* Details page */
+    .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+    .toolbar label{font-size:13px;color:var(--muted)}
+    .toolbar input,.toolbar select{padding:8px 10px;border:1px solid #cfe0ff;border-radius:10px;background:#fff}
+    .toolbar button{padding:9px 14px;border:none;border-radius:10px;background:var(--brand);color:#fff;font-weight:700;cursor:pointer}
+    .toolbar button.secondary{background:#e8f0ff;color:#1744b3}
+
+    table{width:100%;border-collapse:separate;border-spacing:0 8px}
+    thead th{font-size:12px;text-align:left;color:#5b6b84;padding:6px 10px}
+    tbody tr{background:#fff;border:1px solid #d8e8ff}
+    tbody td{padding:12px 10px;border-top:1px solid #d8e8ff;border-bottom:1px solid #d8e8ff}
+    tbody tr:first-child td{border-top-left-radius:10px;border-top-right-radius:10px}
+    tbody tr:last-child td{border-bottom-left-radius:10px;border-bottom-right-radius:10px}
+    .badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:#ecf2ff;color:#1f3d9d;font-size:12px}
+
+    .pager{display:flex;align-items:center;gap:10px;justify-content:space-between;margin-top:14px}
+    .pager .buttons{display:flex;gap:6px}
+    .btn{padding:8px 12px;border:1px solid #cfe0ff;border-radius:10px;background:#fff;cursor:pointer}
+
+    @media (max-width:760px){
+      .grid.cols-2{grid-template-columns:1fr}
+      nav a{flex:1;text-align:center}
+      .toolbar{gap:8px}
+      .toolbar input[type="date"]{width:150px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="app-title">請求書ダウンロード（ダミー）</div>
+      <nav>
+        <a href="#home" class="tab-link" data-tab="home">トップページ</a>
+        <a href="#details" class="tab-link" data-tab="details">明細の確認</a>
+        <a href="#profile" class="tab-link" data-tab="profile">ご登録情報</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- トップページ -->
+    <section id="home" class="tab card" hidden>
+      <h2>お問合せ先</h2>
+      <div class="grid cols-2">
+        <div>
+          <p class="muted">ハギー<br>事業支援部 経理グループ</p>
+          <p class="muted">〒000-0000<br>火星1-2-3オリンポス999F</p>
+          <p class="muted">TEL:03-5405-4882<br>MAIL: invoice@ipros.jp</p>
+          <p class="muted">※ご登録内容の確認・変更等については、上記へご連絡ください。</p>
+        </div>
+        <div>
+          <h2>パチモンからのお知らせ</h2>
+          <div class="notice">
+            <p>◆ページURL変更のお知らせ<br>
+            新しいセキュリティ基準および利便性向上のためURLを変更しました。ブックマークをご利用の方は更新をお願いします。</p>
+            <p>ログインページ：<a class="link" href="#" onclick="alert('ダミーです');return false;">https://rbwahoo.eco-serv.jp/ipros/mypage/</a></p>
+            <p>◆電子帳簿保存法へのご案内<br>受領書類や請求書PDFを案件別に管理でき、電子帳簿保存法にも対応可能です。</p>
+            <p><a class="link" href="#" onclick="alert('ダミーです');return false;">電子帳簿保存法対応「楽楽電子保存（仮称）」お申し込みはこちら »</a></p>
+          </div>
+        </div>
+      </div>
+
+      <h2 style="margin-top:20px">サービスのご利用にあたって</h2>
+      <ul class="muted">
+        <li><a class="link" href="#" onclick="alert('ダミーです');return false;">利用規約</a></li>
+        <li><a class="link" href="#" onclick="alert('ダミーです');return false;">個人情報の取り扱いについて</a></li>
+        <li><a class="link" href="#" onclick="alert('ダミーです');return false;">マイページの「保存環境」について</a></li>
+      </ul>
+    </section>
+
+    <!-- 明細の確認 -->
+    <section id="details" class="tab card" hidden>
+      <p class="muted">最大過去36か月分の帳票をダウンロードすることができます。</p>
+      <div class="toolbar" role="search">
+        <label>発行月：
+          <select>
+            <option>指定なし</option>
+            <option>2025/09</option>
+            <option>2025/04</option>
+          </select>
+        </label>
+        <label>請求日：
+          <input type="date" />
+          〜
+          <input type="date" />
+        </label>
+        <label>キーワード：<input type="text" placeholder="複数キーワード可" /></label>
+        <label>金額（円）：<input type="number" inputmode="numeric" placeholder="例）10000" /></label>
+        <button id="searchBtn" aria-label="検索">検索</button>
+        <button class="secondary" onclick="alert('ダミー：一括ダウンロード')">一括ダウンロード</button>
+      </div>
+
+      <table aria-label="請求書一覧" style="margin-top:12px">
+        <thead>
+          <tr>
+            <th style="width:140px">発行日</th>
+            <th>ダウンロード</th>
+            <th style="width:160px">添付ファイル</th>
+          </tr>
+        </thead>
+        <tbody id="rows">
+          <!-- JSで行を挿入 -->
+        </tbody>
+      </table>
+
+      <div class="pager">
+        <div class="buttons">
+          <button class="btn" id="prev">«</button>
+          <span class="muted" id="pageLabel">1 / 2</span>
+          <button class="btn" id="next">»</button>
+        </div>
+        <label class="muted">表示件数
+          <select id="perPage">
+            <option>50件</option>
+            <option>20件</option>
+            <option>10件</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <!-- ご登録情報 -->
+    <section id="profile" class="tab card" hidden>
+      <h2>ご登録情報</h2>
+      <p class="muted">このページはダミーです。会社名・住所・請求先メールなどを表示する想定領域。
+      編集ボタンや通知先の追加ボタンなどを配置できます。</p>
+      <div class="notice">
+        <b>サンプル：</b>株式会社テストカンパニー / 請求先メール: billing@example.com / 郵便番号: 100-0000 / 東京都千代田区丸の内1-1-1
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // ---- Simple SPA tabs ----
+    const tabs = Array.from(document.querySelectorAll('.tab'));
+    const links = Array.from(document.querySelectorAll('.tab-link'));
+    function show(tab){
+      tabs.forEach(s=>s.hidden = s.id!==tab);
+      links.forEach(a=>a.classList.toggle('active', a.dataset.tab===tab));
+      location.hash = tab;
+    }
+    function initRoute(){
+      const tab = location.hash.replace('#','') || 'home';
+      show(tab);
+    }
+    links.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();show(a.dataset.tab)}));
+    window.addEventListener('hashchange', initRoute);
+    initRoute();
+
+    // ---- Fake table data ----
+    const data = [
+      {date:'2025/09/01', downloaded:true, at:'2025/09/01 16:12:19', name:'請求書_2025-09.pdf'},
+      {date:'2025/04/30', downloaded:true, at:'2025/05/01 09:58:40', name:'請求書_2025-04.pdf'}
+    ];
+    const rows = document.getElementById('rows');
+    function renderRows(){
+      rows.innerHTML = '';
+      data.forEach((r,i)=>{
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${r.date}</td>
+          <td>
+            <a class="link" href="#" onclick="alert('ダミーPDF: ${r.name}')">📄 PDFダウンロード</a>
+            <span class="badge" title="ダウンロード状況">済 <small>（${r.at}）</small></span>
+          </td>
+          <td class="muted">—</td>
+        `;
+        rows.appendChild(tr);
+      });
+    }
+    renderRows();
+
+    // ---- Dummy pager ----
+    document.getElementById('prev').onclick = ()=>alert('ダミー：前のページ');
+    document.getElementById('next').onclick = ()=>alert('ダミー：次のページ');
+    document.getElementById('searchBtn').onclick = ()=>alert('ダミー：検索しました');
+  </script>
+</body>
+</html>
