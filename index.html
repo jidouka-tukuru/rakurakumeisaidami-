@@ -149,12 +149,16 @@
     document.getElementById('loginBtn').onclick = () => {
       const u = document.getElementById('user').value;
       const p = document.getElementById('pass').value;
-      if(u && p){
+      if(!u || !p){
+        alert('ユーザー名とパスワードを入力してください');
+        return;
+      }
+      if(u === 'patimon' && p === 'pattimon'){
         document.getElementById('login').hidden = true;
         document.getElementById('app').hidden = false;
         show('home');
       } else {
-        alert('ユーザー名とパスワードを入力してください');
+        alert('ユーザー名またはパスワードが正しくありません');
       }
     }
 
